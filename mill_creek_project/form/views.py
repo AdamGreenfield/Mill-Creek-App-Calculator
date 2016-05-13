@@ -405,16 +405,6 @@ def contact_form(request):
 		phoneNumberError = ''
 		clientEmailError = ''
 		total = calculate_total(request, 9)
-		if firstname == '':
-			firstNameError = 'This field is required.'
-		if lastname == '':
-			lastNameError = 'This field is required.'
-		if phonenumber == '':
-			phoneNumberError = 'This field is required.'
-		if clientemail == '':
-			clientEmailError = 'This field is required.'
-		if firstname == '' or lastname == '' or phonenumber == '' or clientemail == '':
-			return render(request,'form/contact_form_error.html', {'total' : total, 'firstNameError' : firstNameError, 'lastNameError' : lastNameError, 'phoneNumberError' : phoneNumberError, 'clientEmailError' : clientEmailError})
 		# Valdiating the entered email address. Again, this requires the 'validate_email' method to be installed via pip
 		is_valid = validate_email(clientemail)
 		total = "$" + format(total, ",d")
@@ -468,6 +458,18 @@ def contact_form(request):
 			server_ssl.login(username,password)  
 			server_ssl.sendmail(me, you, msg.as_string())
 			server_ssl.close()
+		else:
+			clientEmailError = 'Please enter a valid email.'
+		if firstname == '':
+			firstNameError = 'This field is required.'
+		if lastname == '':
+			lastNameError = 'This field is required.'
+		if phonenumber == '':
+			phoneNumberError = 'This field is required.'
+		if clientemail == '':
+			clientEmailError = 'This field is required.'
+		if firstname == '' or lastname == '' or phonenumber == '' or clientemail == '' or clientEmailError == 'Please enter a valid email.':
+			return render(request,'form/contact_form_error.html', {'total' : total, 'firstNameError' : firstNameError, 'lastNameError' : lastNameError, 'phoneNumberError' : phoneNumberError, 'clientEmailError' : clientEmailError})
 		return redirect('endpage')
 	total = "$" + format(total, ",d")
 	return render(request, 'form/contact_form.html', {'total' : total})
