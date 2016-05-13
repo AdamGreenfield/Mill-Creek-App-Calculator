@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>App Cost Calculator</title>
+		{% load staticfiles %}
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="stylesheet" href="{% static 'css/platform.css' %}">
+		<script src="{% static 'js/button.js' %}" type="text/javascript" ></script>
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans">
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+		<link rel="SHORTCUT ICON" href="/static/img/favicon.ico">
+	</head>
+	<body>
+	<div class="wrapper">
+		<div class="header">
+			<div class="social">
+				<img src="{% static 'img/facebook.png' %}" id="facebook" class="facebook"/>
+				<img src="{% static 'img/twitter.png' %}" id="twitter" class="twitter"/>
+			</div>
+		</div>
+	<br/>
+	<form method="POST" action="/choose_platform/">{% csrf_token %}
+		<h2>
+			What platform(s) would you like your app to run on?
+		</h2>
+		<br/>
+		<div class="check">
+			<div class="check1">
+				<input type="checkbox" id="answeriOS" value="iOS" name="answeriOS" onclick="ready3('answeriOS', 'answerAndroid', 'answerWeb')" >
+				<label for="answeriOS">
+					<img src="{% static 'img/apple.png' %}" alt="iOS" class="check1 tall">
+				</label>
+				<div class="name">iOS</div>
+			</div>
+			<div class="check2">
+				<input type="checkbox" id="answerAndroid" value="Android" name="answerAndroid" onclick="ready3('answeriOS', 'answerAndroid', 'answerWeb')" >
+				<label for="answerAndroid">
+					<img src="{% static 'img/android.png' %}" alt="Android" class="check2 tall">
+				</label>
+				<div class="name">Android</div>
+			</div>
+			<div class="check2">
+				<input type="checkbox" id="answerWeb" value="Web" name="answerWeb" onclick="ready3('answeriOS', 'answerAndroid', 'answerWeb')" >
+				<label for="answerWeb">
+					<img src="{% static 'img/web.png' %}" alt="Web" class="check2 square">
+				</label>
+				<div class="name">Web</div>
+			</div>
+		</div>
+		<div class="buttons">
+			<input type="image" src="{% static 'img/next-notready.png' %}" class="submit" alt="submit" id="submit" disabled />
+			</form>
+			<a href="/startpage/">
+				<img src="{% static 'img/previous.png' %}" class="previous" alt="previous" id="previous" />
+			</a>
+		</div>
+		<div class="footer">
+			<div class="logo"><a href="http://www.millcreeksoftware.biz/" target="_blank"><img src="{% static 'img/mill-creek-logo.png' %}" class="logo" /></a></div>
+			<div class="info">
+			<a href="http://www.millcreeksoftware.biz/" target="_blank">What We Do</a> / <a href="http://www.millcreeksoftware.biz/case-studies" target="_blank">Case Studies</a> / <a href="http://www.millcreeksoftware.biz/careers" target="_blank">Careers</a> / <a href="http://www.millcreeksoftware.biz/about-us" target="_blank">About</a> / <a href="http://www.millcreeksoftware.biz/contact" target="_blank">Contact</a>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

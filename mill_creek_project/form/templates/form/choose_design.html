@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>App Cost Calculator</title>
+		{% load staticfiles %}
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="stylesheet" href="{% static 'css/platform.css' %}">
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans">
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+		<script src="{% static 'js/button.js' %}" type="text/javascript" ></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+		<link rel="SHORTCUT ICON" href="/static/img/favicon.ico">
+		<script>
+			function beautiful(){
+				var beautiful = document.getElementById("Beautiful");
+				var stock = document.getElementById("Stock");
+				stock.checked = false;
+			}
+			function stock(){
+				var beautiful = document.getElementById("Beautiful");
+				var stock = document.getElementById("Stock");
+				beautiful.checked = false;
+			}
+		</script>
+	</head>
+	<body>
+	<div class="wrapper">
+	<div class="header">
+			<div class="social">
+				<img src="{% static 'img/facebook.png' %}" id="facebook" class="facebook"/>
+				<img src="{% static 'img/twitter.png' %}" id="twitter" class="twitter"/>
+			</div>
+			<div class="cost">
+				<div class="total">
+					{{ total }}
+				</div>
+			</div>
+		</div>
+	<form method="POST" action="/choose_design/"> {% csrf_token %}
+		<br/>
+		<h2>
+			How important is the quality of design to the success of your app?
+		</h2>
+		<br/>
+		<div class = "checknarrow">
+		<div class="check1" onclick="ready2('Beautiful','Stock')">
+			<input type="checkbox" class="option2" id="Beautiful" name="answerBeautiful" value="Beautiful" onclick="beautiful()">
+			<label for="Beautiful">
+				<img src="{% static 'img/design-good.png' %}" alt="Beautiful" class="option2 squarelarge">
+			</label>
+			<div class = "name">Very important</div>
+		</div>
+		<div class="check2" onclick="ready2('Beautiful','Stock')">
+			<input type="checkbox" class="option1" id="Stock" name="answerStock" value="Stock"onclick="stock()">
+			<label for="Stock">
+				<img src="{% static 'img/design-stock.png' %}" alt="Stock" class="option1 squarelarge">
+			</label>
+			<div class = "name">Not important</div>
+		</div>
+		</div>
+	<div class="buttons">
+		<input type="image" src="{% static 'img/next-notready.png' %}" class="submit" alt="submit" id="submit" disabled />
+		</form>
+		<a href="/choose_connection/">
+			<img src="{% static 'img/previous.png' %}" class="previous" alt="previous" id="previous" />
+		</a>
+	</div>
+	<div class="footer">
+			<div class="logo"><a href="http://www.millcreeksoftware.biz/" target="_blank"><img src="{% static 'img/mill-creek-logo.png' %}" class="logo" /></a></div>
+			<div class="info">
+			<a href="http://www.millcreeksoftware.biz/" target="_blank">What We Do</a> / <a href="http://www.millcreeksoftware.biz/case-studies" target="_blank">Case Studies</a> / <a href="http://www.millcreeksoftware.biz/careers" target="_blank">Careers</a> / <a href="http://www.millcreeksoftware.biz/about-us" target="_blank">About</a> / <a href="http://www.millcreeksoftware.biz/contact" target="_blank">Contact</a>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

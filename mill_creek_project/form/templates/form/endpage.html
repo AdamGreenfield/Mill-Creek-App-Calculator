@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>App Cost Calculator</title>
+		{% load staticfiles %}
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="stylesheet" href="{% static 'css/platform.css' %}">
+		<script src="{% static 'js/button.js' %}" type="text/javascript" ></script>
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu">
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans">
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+		<link rel="SHORTCUT ICON" href="/static/img/favicon.ico">
+	</head>
+	<body>
+	<div class="wrapper">
+		<div class="header">
+			<div class="social">
+				<img src="{% static 'img/facebook.png' %}" id="facebook" class="facebook"/>
+				<img src="{% static 'img/twitter.png' %}" id="twitter" class="twitter"/>
+			</div>
+			<div class="cost">
+				<div class="total">
+					{{ total }}
+				</div>
+			</div>
+		</div>
+			<h1>App details have been sent!</h1>
+			<h4><i>Thank you! We'll be in touch soon.<br>Or, feel free to reach out and set up a call to discuss your project:</i></h4>
+			<h5>www.MillCreekSoftware.biz<br>(479) 899 6968</h5>
+		<div class="footer">
+			<div class="logo"><a href="http://www.millcreeksoftware.biz/" target="_blank"><img src="{% static 'img/mill-creek-logo.png' %}" class="logo" /></a></div>
+			<div class="info">
+			<a href="http://www.millcreeksoftware.biz/" target="_blank">What We Do</a> / <a href="http://www.millcreeksoftware.biz/case-studies" target="_blank">Case Studies</a> / <a href="http://www.millcreeksoftware.biz/careers" target="_blank">Careers</a> / <a href="http://www.millcreeksoftware.biz/about-us" target="_blank">About</a> / <a href="http://www.millcreeksoftware.biz/contact" target="_blank">Contact</a>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

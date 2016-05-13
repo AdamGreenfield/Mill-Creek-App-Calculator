@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>App Cost Calculator</title>
+		{% load staticfiles %}
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="stylesheet" href="{% static 'css/platform.css' %}">
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans">
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+		<script src="{% static 'js/button.js' %}" type="text/javascript" ></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+		<link rel="SHORTCUT ICON" href="/static/img/favicon.ico">
+		<script>
+			function greatdeal(){
+				var answerGreatDeal = document.getElementById("answerGreatDeal");
+				var answerSome = document.getElementById("answerSome");
+				var answerNone = document.getElementById("answerNone");
+				answerSome.checked = false;
+				answerNone.checked = false;
+			}
+			function some(){
+				var answerGreatDeal = document.getElementById("answerGreatDeal");
+				var answerSome = document.getElementById("answerSome");
+				var answerNone = document.getElementById("answerNone");
+				answerGreatDeal.checked = false;
+				answerNone.checked = false;
+			}
+			function none(){
+				var answerGreatDeal = document.getElementById("answerGreatDeal");
+				var answerSome = document.getElementById("answerSome");
+				var answerNone = document.getElementById("answerNone");
+				answerGreatDeal.checked = false;
+				answerSome.checked = false;
+			}
+		</script>
+	</head>
+	<body>
+	<div class="wrapper">
+	<div class="header">
+			<div class="social">
+				<img src="{% static 'img/facebook.png' %}" id="facebook" class="facebook"/>
+				<img src="{% static 'img/twitter.png' %}" id="twitter" class="twitter"/>
+			</div>
+			<div class="cost">
+				<div class="total">
+					{{ total }}
+				</div>
+			</div>
+		</div>
+	<form method="POST" action="/choose_content_management/"> {% csrf_token %}
+		<br/>
+		<h2>
+			How much of your app's content will need to be managed?
+		</h2>
+		<br/>
+		<div class = "check">
+			<div class = "check1" onclick="ready3('answerGreatDeal','answerSome','answerNone')">
+				<input type="checkbox" class="option1" id="answerGreatDeal" name="answerGreatDeal" value="great deal" onclick="greatdeal()">
+				<label for="answerGreatDeal">
+					<img src="{% static 'img/a-great-deal.png' %}" alt="A Great Deal" class="option1 tall">
+				</label>
+				<div class = "name">A Great Deal</div>
+			</div>
+			<div class = "check2" onclick="ready3('answerGreatDeal','answerSome','answerNone')">
+				<input type="checkbox" class="option2" id="answerSome" name="answerSome" value="some" onclick="some()">
+				<label for="answerSome">
+					<img src="{% static 'img/not-much.png' %}" alt="Some" class="option2 small">
+				</label>
+				<div class = "name">Not Much</div>
+			</div>
+			<div class = "check2" onclick="ready3('answerGreatDeal','answerSome','answerNone')">
+				<input type="checkbox" class="option2" id="answerNone" name="answerNone" value="none" onclick="none()">
+				<label for="answerNone">
+					<img src="{% static 'img/none.png' %}" alt="None" class="option2 square">
+				</label>
+				<div class = "name">None at All</div>
+			</div>
+		</div>
+	<div class="buttons">
+		<input type="image" src="{% static 'img/next-notready.png' %}" class="submit" alt="submit" id="submit" disabled />
+		</form>
+		<a href="/choose_additional_functions/">{% csrf_token %}
+			<img src="{% static 'img/previous.png' %}" class="previous" alt="previous" id="previous" />
+		</a>
+	</div>
+	<div class="footer">
+			<div class="logo"><a href="http://www.millcreeksoftware.biz/" target="_blank"><img src="{% static 'img/mill-creek-logo.png' %}" class="logo" /></a></div>
+			<div class="info">
+			<a href="http://www.millcreeksoftware.biz/" target="_blank">What We Do</a> / <a href="http://www.millcreeksoftware.biz/case-studies" target="_blank">Case Studies</a> / <a href="http://www.millcreeksoftware.biz/careers" target="_blank">Careers</a> / <a href="http://www.millcreeksoftware.biz/about-us" target="_blank">About</a> / <a href="http://www.millcreeksoftware.biz/contact" target="_blank">Contact</a>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

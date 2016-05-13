@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>App Cost Calculator</title>
+		{% load staticfiles %}
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="stylesheet" href="{% static 'css/platform.css' %}">
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans">
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+		<script src="{% static 'js/button.js' %}" type="text/javascript" ></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+		<link rel="SHORTCUT ICON" href="/static/img/favicon.ico">
+	</head>
+	<body>
+	<div class="wrapper">
+	<div class="header">
+			<div class="social">
+				<img src="{% static 'img/facebook.png' %}" id="facebook" class="facebook"/>
+				<img src="{% static 'img/twitter.png' %}" id="twitter" class="twitter"/>
+			</div>
+			<div class="cost">
+				<div class="total">
+					{{ total }}
+				</div>
+			</div>
+		</div>
+	<form method="POST" action="/choose_additional_functions/">{% csrf_token %}
+		<br/>
+		<h2>
+			What additional functionality or capabilities will your app use?
+		</h2>
+		<br/>
+		<div class = "checklarge">
+		<div class="check1">
+			<input type="checkbox" id="answerEcommerce" value="ecommerce" name="answerEcommerce" >
+			<label for="answerEcommerce"><img src="{% static 'img/ecommerce.png' %}" alt="Ecommerce" class="check1 square"></label>
+			<center><div class = "name">Ecommerce</div></center>
+		</div>
+		<div class="check2">
+			<input type="checkbox" id="answerSearch" value="search" name="answerSearch" >
+			<label for="answerSearch"><img src="{% static 'img/search.png' %}" alt="Search" class="check2 square"></label>
+			<center><div class = "name">Search</div></center>
+		</div>
+		<div class="check2">
+			<input type="checkbox" id="answerDashboard" value="dashboard" name="answerDashboard" >
+			<label for="answerDashboard"><img src="{% static 'img/dashboard.png' %}" alt="Dashboard" class="check2 square"></label>
+			<center><div class="name">Dashboard</div></center>
+		</div>
+		<div class="check3">
+			<input type="checkbox" id="answerRatings" value="ratings" name="answerRatings" >
+			<label for="answerRatings"><img src="{% static 'img/ratings.png' %}" alt="Ratings/Reviews" class="check3 square"></label>
+			<center><div class="name">Ratings/Reviews</div></center>
+		</div>
+		<div class="check4">
+			<input type="checkbox" id="answerFeed" value="feed" name="answerFeed" >
+			<label for="answerFeed"><img src="{% static 'img/activity-feed.png' %}" alt="Activity Feed" class="check4 square"></label>
+			<center><div class="name">Activity<br>Feed</div></center>
+			<br/>
+		</div>
+		<div class="check4">
+			<input type="checkbox" id="answerSharing" value="sharing" name="answerSharing" >
+			<label for="answerSharing"><img src="{% static 'img/social-sharing.png' %}" alt="Social Sharing" class="check4 square"></label>
+			<center><div class="name">Social Sharing</div></center>
+		</div>
+		</div>
+		<div class="buttons">
+			<input type="image" src="{% static 'img/next-ready.png' %}" class="submit" alt="submit" id="submit" />
+			</form>
+			<a href="/choose_device_functions/">
+				<img src="{% static 'img/previous.png' %}" class="previous" alt="previous" id="previous" />
+			</a>
+		</div>
+		<div class="footer">
+			<div class="logo"><a href="http://www.millcreeksoftware.biz/" target="_blank"><img src="{% static 'img/mill-creek-logo.png' %}" class="logo" /></a></div>
+			<div class="info">
+			<a href="http://www.millcreeksoftware.biz/" target="_blank">What We Do</a> / <a href="http://www.millcreeksoftware.biz/case-studies" target="_blank">Case Studies</a> / <a href="http://www.millcreeksoftware.biz/careers" target="_blank">Careers</a> / <a href="http://www.millcreeksoftware.biz/about-us" target="_blank">About</a> / <a href="http://www.millcreeksoftware.biz/contact" target="_blank">Contact</a>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

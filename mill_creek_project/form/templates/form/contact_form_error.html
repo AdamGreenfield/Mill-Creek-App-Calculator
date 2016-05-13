@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>App Cost Calculator</title>
+		{% load staticfiles %}
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="stylesheet" href="{% static 'css/platform.css' %}">
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans">
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+		<link rel="SHORTCUT ICON" href="/static/img/favicon.ico">
+	</head>
+	<body>
+	<div class="wrapper">
+	<div class="header">
+			<div class="social">
+				<img src="{% static 'img/facebook.png' %}" id="facebook" class="facebook"/>
+				<img src="{% static 'img/twitter.png' %}" id="twitter" class="twitter"/>
+			</div>
+			<div class="cost">
+				<div class="total">
+					{{ total }}
+				</div>
+			</div>
+		</div>
+	<br>
+	<form method="POST" action="/contact_form/">{% csrf_token %}
+		<h2>
+			Provide your contact information below and we'll be in touch!
+		</h2>
+		<div class = "contact">
+			<input type="text" id="FirstName" name="FirstName" class="thin first" placeholder="First Name"><span class="error">{{ firstNameError }}</span><br>
+			<input type="text" id="LastName" name="LastName" class="thin" placeholder="Last Name"><span class="error">{{ lastNameError }}</span><br>
+			<input type="text" id="PhoneNumber" name="PhoneNumber" class="thin" placeholder="Phone Number"><span class="error">{{ phoneNumberError }}</span><br>
+			<input type="text" id="EmailAddress" name="EmailAddress" class="thin" placeholder="Email Address"><span class="error">{{ clientEmailError }}</span><br>
+			<textarea rows="7" id="ExtraInfo" name="ExtraInfo" class="extra" placeholder="Any extra info we should know?"></textarea>
+		</div>
+	<div class="buttons">
+		<input type="image" src="{% static 'img/next-ready.png' %}" class="submit" alt="submit" id="submit" />
+	</form>
+		<a href="/total_page/">{% csrf_token %}
+			<img src="{% static 'img/previous.png' %}" class="previous" alt="previous" id="previous" />
+		</a>
+	</div>
+	<div class="footer">
+			<div class="logo"><a href="http://www.millcreeksoftware.biz/" target="_blank"><img src="{% static 'img/mill-creek-logo.png' %}" class="logo" /></a></div>
+			<div class="info">
+			<a href="http://www.millcreeksoftware.biz/" target="_blank">What We Do</a> / <a href="http://www.millcreeksoftware.biz/case-studies" target="_blank">Case Studies</a> / <a href="http://www.millcreeksoftware.biz/careers" target="_blank">Careers</a> / <a href="http://www.millcreeksoftware.biz/about-us" target="_blank">About</a> / <a href="http://www.millcreeksoftware.biz/contact" target="_blank">Contact</a>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

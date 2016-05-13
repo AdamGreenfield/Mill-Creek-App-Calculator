@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		{% load staticfiles %}
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>App Cost Calculator</title>
+		<link rel="stylesheet" href="{% static 'css/platform.css' %}">
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans">
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+		<link rel="SHORTCUT ICON" href="/static/img/favicon.ico">
+	</head>
+	<body>
+	<div class="wrapper">
+		<div class="header">
+			<div class="social">
+				<img src="{% static 'img/facebook.png' %}" id="facebook" class="facebook"/>
+				<img src="{% static 'img/twitter.png' %}" id="twitter" class="twitter"/>
+			</div>
+			<div class="cost">
+				<div class="total">
+					{{ total }}
+				</div>
+			</div>
+		</div>
+	<form method="POST" action="/total_page/">{% csrf_token %}
+	<br>
+		<h1 class="finalcost">
+			A rough estimate for your app is...
+		</h1>
+		<h6>
+			{{ total }}
+		</h6>
+		<p>
+			But keep in mind, this number could be way off!<br>
+			<br>
+			The best way to get an accurate quote is to send over your app details and let us take a look at it.<br>
+			<br>
+			We’ll get in touch with you to discuss your project, and see if we can help get this app idea off the ground!
+		</p>
+		<div class="buttons">
+			<input type="image" src="{% static 'img/next-ready.png' %}" class="submit" alt="submit" id="submit" />
+			</form>
+			<a href="/choose_content_management/">{% csrf_token %}
+				<img src="{% static 'img/previous.png' %}" class="previous" alt="previous" id="previous" />
+			</a>
+		</div>
+		<div class="footer">
+			<div class="logo"><a href="http://www.millcreeksoftware.biz/" target="_blank"><img src="{% static 'img/mill-creek-logo.png' %}" class="logo" /></a></div>
+			<div class="info">
+			<a href="http://www.millcreeksoftware.biz/" target="_blank">What We Do</a> / <a href="http://www.millcreeksoftware.biz/case-studies" target="_blank">Case Studies</a> / <a href="http://www.millcreeksoftware.biz/careers" target="_blank">Careers</a> / <a href="http://www.millcreeksoftware.biz/about-us" target="_blank">About</a> / <a href="http://www.millcreeksoftware.biz/contact" target="_blank">Contact</a>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>
