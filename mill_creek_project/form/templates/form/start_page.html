@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
 	<head>
 		<title>App Cost Calculator</title>
 		{% load staticfiles %}
@@ -11,24 +12,14 @@
 	</head>
 	<body>
 	<div class="wrapper">
-		<div class="header">
-			<div class="social">
-				<img src="{% static 'img/facebook.png' %}" id="facebook" class="facebook"/>
-				<img src="{% static 'img/twitter.png' %}" id="twitter" class="twitter"/>
-			</div>
-		</div>
+		{% include 'form/headernocost.html' %}
 		<h1>How much will your app cost?</h1>
 		<h5>Click "Get Started" to get a ballpark estimate of how much your app will cost to make.</h5>
 		<form method="POST" action="/startpage/">{% csrf_token %}
 			<input type="image" src="{% static 'img/get-started.png' %}" alt="get-started" class="getstarted">
 		</form>
 		<h3>[BROUGHT TO YOU BY <a href="http://www.millcreeksoftware.biz/" target="_blank">MILL CREEK SOFTWARE</a>]</h3>
-		<div class="footer">
-			<div class="logo"><a href="http://www.millcreeksoftware.biz/" target="_blank"><img src="{% static 'img/mill-creek-logo.png' %}" class="logo" /></a></div>
-			<div class="info">
-			<a href="http://www.millcreeksoftware.biz/" target="_blank">What We Do</a> / <a href="http://www.millcreeksoftware.biz/case-studies" target="_blank">Case Studies</a> / <a href="http://www.millcreeksoftware.biz/careers" target="_blank">Careers</a> / <a href="http://www.millcreeksoftware.biz/about-us" target="_blank">About</a> / <a href="http://www.millcreeksoftware.biz/contact" target="_blank">Contact</a>
-			</div>
-		</div>
+		{% include 'form/footer.html' %}
 	</div>
 	</body>
 </html>

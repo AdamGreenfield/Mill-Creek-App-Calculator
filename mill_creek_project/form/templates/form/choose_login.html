@@ -26,17 +26,7 @@
 	</head>
 	<body>
 	<div class="wrapper">
-		<div class="header">
-			<div class="social">
-				<img src="{% static 'img/facebook.png' %}" id="facebook" class="facebook"/>
-				<img src="{% static 'img/twitter.png' %}" id="twitter" class="twitter"/>
-			</div>
-			<div class="cost">
-				<div class="total">
-					{{ total }}
-				</div>
-			</div>
-		</div>
+		{% include 'form/header.html' %}
 	<form method="POST" action="/choose_login/"> {% csrf_token %}
 		<br/>
 		<h2>
@@ -66,12 +56,7 @@
 				<img src="{% static 'img/previous.png' %}" class="previous" alt="previous" id="previous" />
 			</a>
 		</div>
-		<div class="footer">
-			<div class="logo"><a href="http://www.millcreeksoftware.biz/" target="_blank"><img src="{% static 'img/mill-creek-logo.png' %}" class="logo" /></a></div>
-			<div class="info">
-			<a href="http://www.millcreeksoftware.biz/" target="_blank">What We Do</a> / <a href="http://www.millcreeksoftware.biz/case-studies" target="_blank">Case Studies</a> / <a href="http://www.millcreeksoftware.biz/careers" target="_blank">Careers</a> / <a href="http://www.millcreeksoftware.biz/about-us" target="_blank">About</a> / <a href="http://www.millcreeksoftware.biz/contact" target="_blank">Contact</a>
-			</div>
-		</div>
+		{% include 'form/footer.html' %}
 	</div>
 	</body>
 </html>

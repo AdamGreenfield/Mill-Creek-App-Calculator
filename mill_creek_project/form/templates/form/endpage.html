@@ -15,26 +15,12 @@
 	</head>
 	<body>
 	<div class="wrapper">
-		<div class="header">
-			<div class="social">
-				<img src="{% static 'img/facebook.png' %}" id="facebook" class="facebook"/>
-				<img src="{% static 'img/twitter.png' %}" id="twitter" class="twitter"/>
-			</div>
-			<div class="cost">
-				<div class="total">
-					{{ total }}
-				</div>
-			</div>
-		</div>
+		{% include 'form/header.html' %}
+		
 			<h1>App details have been sent!</h1>
 			<h4><i>Thank you! We'll be in touch soon.<br>Or, feel free to reach out and set up a call to discuss your project:</i></h4>
 			<h5>www.MillCreekSoftware.biz<br>(479) 899 6968</h5>
-		<div class="footer">
-			<div class="logo"><a href="http://www.millcreeksoftware.biz/" target="_blank"><img src="{% static 'img/mill-creek-logo.png' %}" class="logo" /></a></div>
-			<div class="info">
-			<a href="http://www.millcreeksoftware.biz/" target="_blank">What We Do</a> / <a href="http://www.millcreeksoftware.biz/case-studies" target="_blank">Case Studies</a> / <a href="http://www.millcreeksoftware.biz/careers" target="_blank">Careers</a> / <a href="http://www.millcreeksoftware.biz/about-us" target="_blank">About</a> / <a href="http://www.millcreeksoftware.biz/contact" target="_blank">Contact</a>
-			</div>
-		</div>
+		{% include 'form/footer.html' %}
 	</div>
 	</body>
 </html>

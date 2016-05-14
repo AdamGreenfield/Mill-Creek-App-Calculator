@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, render_to_response, redirect
 from django import forms
 from django.http import HttpResponse
+from django.template.loader import render_to_string
 from form.models import Costs
 import smtplib
 from email.mime.text import MIMEText
