@@ -419,7 +419,7 @@ def contact_form(request):
 		additionalfunctions = ', '.join(request.session['additionalFunctionsString'])
 		contentmanagement = ', '.join(request.session['contentManagementString'])
 		# If the entered email is valid, an email will be sent. This simply uses the gmail SMTP server to send an email to itself
-		if is_valid:
+		if is_valid and firstname != '' and lastname != '' and phonenumber != '' and clientemail != '':
 			# Throwaway gmail account I made for the purposes of testing, can be changed to any gmail address and password
 			me = 'test2312580@gmail.com'
 			you = 'test2312580@gmail.com'
@@ -459,7 +459,7 @@ def contact_form(request):
 			server_ssl.login(username,password)  
 			server_ssl.sendmail(me, you, msg.as_string())
 			server_ssl.close()
-		else:
+		elif is_valid != True:
 			clientEmailError = 'Please enter a valid email.'
 		if firstname == '':
 			firstNameError = 'This field is required.'
@@ -470,7 +470,7 @@ def contact_form(request):
 		if clientemail == '':
 			clientEmailError = 'This field is required.'
 		if firstname == '' or lastname == '' or phonenumber == '' or clientemail == '' or clientEmailError == 'Please enter a valid email.':
-			return render(request,'form/contact_form_error.html', {'total' : total, 'firstNameError' : firstNameError, 'lastNameError' : lastNameError, 'phoneNumberError' : phoneNumberError, 'clientEmailError' : clientEmailError})
+			return render(request,'form/contact_form_error.html', {'total' : total, 'firstNameError' : firstNameError, 'lastNameError' : lastNameError, 'phoneNumberError' : phoneNumberError, 'clientEmailError' : clientEmailError, 'firstname' : firstname, 'lastname' : lastname, 'phonenumber' : phonenumber, 'clientemail' : clientemail, 'extrainfo' : extrainfo})
 		return redirect('endpage')
 	total = "$" + format(total, ",d")
 	return render(request, 'form/contact_form.html', {'total' : total})

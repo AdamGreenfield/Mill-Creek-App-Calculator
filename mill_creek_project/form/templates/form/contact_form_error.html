@@ -19,11 +19,11 @@
 			Provide your contact information below and we'll be in touch!
 		</h2>
 		<div class = "contact">
-			<input type="text" id="FirstName" name="FirstName" class="thin first" placeholder="First Name"><span class="error">{{ firstNameError }}</span><br>
-			<input type="text" id="LastName" name="LastName" class="thin" placeholder="Last Name"><span class="error">{{ lastNameError }}</span><br>
-			<input type="text" id="PhoneNumber" name="PhoneNumber" class="thin" placeholder="Phone Number"><span class="error">{{ phoneNumberError }}</span><br>
-			<input type="text" id="EmailAddress" name="EmailAddress" class="thin" placeholder="Email Address"><span class="error">{{ clientEmailError }}</span><br>
-			<textarea rows="7" id="ExtraInfo" name="ExtraInfo" class="extra" placeholder="Any extra info we should know?"></textarea>
+			<input type="text" id="FirstName" name="FirstName" class="thin first" placeholder="First Name" value="{{ firstname }}"><span class="error">{{ firstNameError }}</span><br>
+			<input type="text" id="LastName" name="LastName" class="thin" placeholder="Last Name" value="{{ lastname }}"><span class="error">{{ lastNameError }}</span><br>
+			<input type="text" id="PhoneNumber" name="PhoneNumber" class="thin" placeholder="Phone Number" value="{{ phonenumber }}"><span class="error">{{ phoneNumberError }}</span><br>
+			<input type="text" id="EmailAddress" name="EmailAddress" class="thin" placeholder="Email Address" value="{{ clientemail }}"><span class="error">{{ clientEmailError }}</span><br>
+			<textarea rows="7" id="ExtraInfo" name="ExtraInfo" class="extra" placeholder="Any extra info we should know?">{{ extrainfo }}</textarea>
 		</div>
 	<div class="buttons">
 		<input type="image" src="{% static 'img/next-ready.png' %}" class="submit" alt="submit" id="submit" />
