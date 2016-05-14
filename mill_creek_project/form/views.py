@@ -1,7 +1,5 @@
-from django.shortcuts import render, get_object_or_404, render_to_response, redirect
+from django.shortcuts import render, redirect
 from django import forms
-from django.http import HttpResponse
-from django.template.loader import render_to_string
 from form.models import Costs
 import smtplib
 from email.mime.text import MIMEText
@@ -95,6 +93,7 @@ def choose_login(request):
 	# Calling the calculate_total method. This method was implemented rather than just storing the running total in a session variable to fix some problems that were encountered upon pressing the browser's back button
 	total = calculate_total(request, 1)
 	if request.method == "POST":
+		list = []
 		if 'answerYes' in request.POST:
 			answerYes = request.POST['answerYes']
 		else:
@@ -108,9 +107,11 @@ def choose_login(request):
 			return redirect('choose_login_type')
 		elif answerNo == "No":
 			total = total
+			list.append('None')
 			request.session['login'] = False
 			request.session['email'] = False
 			request.session['social'] = False
+			request.session['loginTypeString'] = list
 			return redirect('choose_payment')
 	# Formatting the total and then passing it to the page
 	total = "$" + format(total, ",d")
