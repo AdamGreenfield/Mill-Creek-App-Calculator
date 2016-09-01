@@ -145,6 +145,28 @@ def choose_login_type(request):
 		return redirect('choose_payment')
 	total = "$" + format(total, ",d")
 	return render(request, 'form/choose_login_type.html/', {'total' : total})
+
+"""           /\
+             |==|
+             ====
+              XX
+             xXXx
+             XXXX
+             XXXX
+             XXXX
+            xXXXXx
+            XXXXXX
+            XXXXXX
+           xXXXXXXx
+           XXXXXXXX
+          xXXXXXXXXx
+          XXXXXXXXXX
+         XXXXX  XXXXX
+        xXXXX"  "XXXXx
+       XXXXXxxxxxxXXXXX
+     xXXXXX""""""""XXXXXx
+   xXXXXXX"        "XXXXXXx
+xxXXXXXXX            XXXXXXXxx """
 	
 def choose_payment(request):
 	if 'paymentString' not in request.session:
